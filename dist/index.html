@@ -5,29 +5,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
+  <link
+  href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Yusei+Magic&display=swap"
+  rel="stylesheet"
+/>
+<script
+  src="https://kit.fontawesome.com/4c536a6bd5.js"
+  crossorigin="anonymous"
+></script>
+
 </head>
 <body id='body'>
 
-    <nav class="nav__bar d-flex">
-      <div class="nav__bar-logo">
-        <h5>Todos</h5>
+    <nav class="nav__bar d-flex p-2 bg-danger justify-content-between">
+      <div class="nav__bar-logo text-white d-flex">
+        <h5 class="align-items-center m-0 p-0 d-flex font-weight-bold ml-5">Todos</h5>
       </div>
-      <div class="nav__bar-right">
-        <h5>Add Projects</h5>
+      <div class="nav__bar-right mr-2">
+        <button class="btn btn-light text-danger font-weight-bold"> <i class="fas fa-plus-circle"></i> Add Project</button>
       </div>
     </nav> 
     
-    <div class="main__page">
-      <div class="main__page-left">
-        <ul class="d-flex">
-          <li>Today</li>
-          <li>Week</li>
-          <li>Vacation</li>
-          <li>Cleaning</li>
-        </ul>
-      </div>
-      <div class="main__page-right">
+    <div class="main__page d-flex">
+      <div class="main__page-left col-3 bg-light d-flex flex-column py-5">
 
+        <button class="left-button " id="btnInbox"><i class="fas fa-inbox mr-2"></i> Inbox</button>
+        <button class="left-button mt-2" id="btnToday"><i class="fas fa-calendar-day mr-2"></i> Today</button>
+        <button class="left-button mt-2" id="btnWeek"><i class="fas fa-calendar-week mr-2"></i> Week</button>
+        
+        <hr>
+        <h3 class="d-flex align-items-center justify-content-center m-0 p-0 text-danger font-weight-bold">Projects</h3>
+        <button class="left-button"><i class="fas fa-plus-circle mr-2"></i> Add Project</button>
+      </div>
+      <div class="main__page-right col-9" id="content">
+        <h3>Hello World</h3>
       </div>
     </div>
   

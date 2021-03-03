@@ -1,9 +1,26 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.nav__bar{
+.main__page-left {
+  height: 90vh;
+}
+
+.left-button {
   padding: 10px;
-  background-color: #acd3f3;
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.left-button:hover {
+  background: #ccc;
+  border-radius: 16px;
+}
+
+.active {
+  background: #ccc;
+  border-radius: 16px;
 }
