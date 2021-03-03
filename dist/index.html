@@ -6,14 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
 </head>
-<body>
+<body id='body'>
 
-  <div id="content">
-
+    <nav class="nav__bar d-flex">
+      <div class="nav__bar-logo">
+        <h5>Todos</h5>
+      </div>
+      <div class="nav__bar-right">
+        <h5>Add Projects</h5>
+      </div>
+    </nav> 
     
     <div class="main__page">
       <div class="main__page-left">
-        <ul>
+        <ul class="d-flex">
           <li>Today</li>
           <li>Week</li>
           <li>Vacation</li>
@@ -24,8 +30,6 @@
 
       </div>
     </div>
-
-  </div>
   
   <script src="main.js"></script>
 </body>

@@ -1,0 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.nav__bar{
+  padding: 10px;
+  background-color: #acd3f3;
+}
