@@ -16,6 +16,8 @@
 ></script>
 </head>
 <body>
+
+
   <div class="container">
     <div class="row">
       <div class="col s12">
@@ -26,8 +28,28 @@
               <form id="task-form">
                 <div class="input-field col s12">
                   <input type="text" name="task", id="task">
-                  <label for="task">New Task</label>
+                  <label for="task">Title</label>
                 </div>
+                <div class="input-field col s12">
+                  <input type="text" name="desc", id="description">
+                  <label for="task">Description</label>
+                </div>
+                <div class="input-field col s12">
+                  <input type="date" id="due-date" name="due-date"> 
+                  <label for="task">Due Date:</label>
+                </div>
+              
+                <div class="input-field col s-12">
+
+                  <select class="browser-default my-5">
+                    <option value="" disabled selected>Choose your priority</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                  </select>  
+                <label>Priority</label>
+                </div>
+                
                 <input type="submit" value="Add Task" class="btn">
               </form>
             </div>
@@ -45,9 +67,6 @@
       </div>
     </div>
   </div>
-
-
-
 
 
 <script

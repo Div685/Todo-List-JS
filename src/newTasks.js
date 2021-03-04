@@ -15,14 +15,16 @@ const addNewTask = () => {
       link.innerHTML = '<i class="fa fa-remove"></i>'
       li.appendChild(link);
       taskList.appendChild(li);
+
+      //Store in local storage!
+      storeTaskInLocalStorage(taskInput.value);
+    
+      taskInput.value = ''
+     
+      e.preventDefault();
     }
 
-    //Store in local storage!
-    storeTaskInLocalStorage(taskInput.value);
-  
-    taskInput.value = ''
-   
-    e.preventDefault();
+    
 
     return taskList;
   }
