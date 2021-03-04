@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
-  <link
-  href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Yusei+Magic&display=swap"
-  rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Yusei+Magic&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<script
-  src="https://kit.fontawesome.com/4c536a6bd5.js"
-  crossorigin="anonymous"
-></script>
+  <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
 
   <div class="container">
     <div class="row">
+      <div class="col">
+        <div class="card blue-grey darken-1" id = "form2">
+          <div class="card-content white-text">
+            <span class="card-title">Project List</span>
+            <p>Use the link below to switch between projects or and a new project.</p>
+          </div>
+          <ul class="card-action">
+          </ul>
+          <form id="project-form">
+            <div class="input-field">
+              <input type="text" name="project" id="project">
+              <label for="task">Project Name</label>
+            </div>
+            <input type="submit" value="Add Project" class="waves-effect waves-light btn text-white">
+          </form>
+        </div>
+      </div>
       <div class="col s12">
         <div id="main" class="card">
-          <div class="card-content">
+          <div class="card-content new-task">
             <span class="card-title">Task List</span>
             <div class="row">
               <form id="task-form">
                 <div class="input-field col s12">
-                  <input type="text" name="task", id="task">
+                  <input type="text" name="task" , id="task">
                   <label for="task">Title</label>
                 </div>
                 <div class="input-field col s12">
-                  <input type="text" name="desc", id="description">
+                  <input type="text" name="desc" , id="description">
                   <label for="task">Description</label>
                 </div>
                 <div class="input-field col s12">
-                  <input type="date" id="due-date" name="due-date"> 
+                  <input type="date" id="due-date" name="due-date">
                   <label for="task">Due Date:</label>
                 </div>
-              
+
                 <div class="input-field col s-12">
 
-                  <select class="browser-default my-5">
+                  <select class="browser-default my-5" id="priority">
                     <option value="" disabled selected>Choose your priority</option>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
                     <option value="low">Low</option>
-                  </select>  
-                <label>Priority</label>
+                  </select>
+                  <label>Priority</label>
                 </div>
-                
+
                 <input type="submit" value="Add Task" class="btn">
               </form>
             </div>
@@ -57,7 +71,7 @@
           <div class="card-action">
             <h5 id="task-title">Tasks</h5>
             <div class="input-field col s12">
-              <input type="text" name="filter", id="filter">
+              <input type="text" name="filter" , id="filter">
               <label for="filter">Filter Tasks</label>
             </div>
             <ul class="collection"></ul>
@@ -69,11 +83,10 @@
   </div>
 
 
-<script
-  src="https://code.jquery.com/jquery-3.6.0.js"
-  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="main.js"></script>
 </body>
+
 </html>
