@@ -8,41 +8,53 @@
   <link
   href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Yusei+Magic&display=swap"
   rel="stylesheet"
-/>
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <script
   src="https://kit.fontawesome.com/4c536a6bd5.js"
   crossorigin="anonymous"
 ></script>
-
 </head>
-<body id='body'>
-
-    <nav class="nav__bar d-flex p-2 bg-danger justify-content-between">
-      <div class="nav__bar-logo text-white d-flex">
-        <h5 class="align-items-center m-0 p-0 d-flex font-weight-bold ml-5">Todos</h5>
-      </div>
-      <div class="nav__bar-right mr-2">
-        <button class="btn btn-light text-danger font-weight-bold"> <i class="fas fa-plus-circle"></i> Add Project</button>
-      </div>
-    </nav> 
-    
-    <div class="main__page d-flex">
-      <div class="main__page-left col-3 bg-light d-flex flex-column py-5">
-
-        <button class="left-button " id="btnInbox"><i class="fas fa-inbox mr-2"></i> Inbox</button>
-        <button class="left-button mt-2" id="btnToday"><i class="fas fa-calendar-day mr-2"></i> Today</button>
-        <button class="left-button mt-2" id="btnWeek"><i class="fas fa-calendar-week mr-2"></i> Week</button>
-        
-        <hr>
-        <h3 class="d-flex align-items-center justify-content-center m-0 p-0 text-danger font-weight-bold">Projects</h3>
-        <button class="left-button" id="btnAddTask"><i class="fas fa-plus-circle mr-2"></i> Add Project</button>
-      </div>
-      <div class="main__page-right col-9" id="content">
-        <h3>Hello World</h3>
-        
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div id="main" class="card">
+          <div class="card-content">
+            <span class="card-title">Task List</span>
+            <div class="row">
+              <form id="task-form">
+                <div class="input-field col s12">
+                  <input type="text" name="task", id="task">
+                  <label for="task">New Task</label>
+                </div>
+                <input type="submit" value="Add Task" class="btn">
+              </form>
+            </div>
+          </div>
+          <div class="card-action">
+            <h5 id="task-title">Tasks</h5>
+            <div class="input-field col s12">
+              <input type="text" name="filter", id="filter">
+              <label for="filter">Filter Tasks</label>
+            </div>
+            <ul class="collection"></ul>
+            <a href="#" class="clear-tasks btn black text-white">Clear Tasks</a>
+          </div>
+        </div>
       </div>
     </div>
-  
+  </div>
+
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

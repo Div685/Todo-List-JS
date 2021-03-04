@@ -70,23 +70,23 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
+/***/ "./src/addTask.js":
+/*!************************!*\
+  !*** ./src/addTask.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\nconst addTask = () => {\n\n  const form = document.querySelector('#task-form');\n  const taskList = document.querySelector('.collection');\n  const clearBtn = document.querySelector('.clear-tasks');\n  const filter = document.querySelector('#filter');\n  const taskInput = document.querySelector('#task');\n\n  loadEventListeners();\n\n  function loadEventListeners() {\n    form.addEventListener('submit', addNewTask);\n\n  }\n\n  function addNewTask(e) {\n    if(taskInput.value === '') {\n      alert('Task cannot be empty')\n    }\n\n    const li = document.createElement('li');\n    li.className = 'collection-item'\n    li.appendChild(document.createTextNode(taskInput.value));\n\n    const link = document.createElement('a');\n    link.className = 'delete-item secondary-content'\n    link.innerHTML = '<i class=\"fa fa-remove\"></i>'\n\n    li.appendChild(link);\n    taskList.appendChild(li);\n    taskInput.value = ''\n\n    e.preventDefault();\n  }\n\n\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addTask);\n\n//# sourceURL=webpack://todo-list-js/./src/addTask.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _load_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./load_form */ \"./src/load_form.js\");\n\n\n\n\nconsole.log('Hello Todos');\n\nconst mainContent = document.getElementById('content');\n\nconst setSection = (section) => {\n  mainContent.innerHTML = '';\n  mainContent.append(section);\n}\n\ndocument.addEventListener('click', (e) => {\n  if (e.target && e.target.id === 'btnAddTask') {\n    const section = (0,_load_form__WEBPACK_IMPORTED_MODULE_2__.default)();\n    setSection(section);\n  }\n})\n\n//# sourceURL=webpack://todo-list-js/./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/load_form.js":
-/*!**************************!*\
-  !*** ./src/load_form.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst loadForm = () => {\n  const formDiv = document.createElement('div');\n  formDiv.classList.add('card');\n  formDiv.classList.add('p-4');\n  formDiv.setAttribute('id', 'form-div');\n\n  const form = document.createElement('form');\n  form.setAttribute('id', 'form');\n  form.setAttribute('method', 'post');\n  form.setAttribute('action', '');\n\n  \n  const h1 = document.createElement('h1');\n  h1.classList.add('text-danger');\n  h1.classList.add('font-weight-bold');\n  h1.classList.add('my-4')\n  h1.innerText = 'New Project';\n  form.appendChild(h1);\n\n  const titleLabel = document.createElement('label');\n  titleLabel.classList.add('h4')\n  titleLabel.innerText = 'Title';\n  form.appendChild(titleLabel);\n\n  const title = document.createElement('input');\n  title.classList.add('form-control')\n  title.setAttribute('type', 'text');\n  title.setAttribute('name', \"title\");\n  title.setAttribute('placeholder', 'Title');\n  form.appendChild(title);\n\n  const submit = document.createElement('input');\n  submit.classList.add('form-control');\n  submit.classList.add('my-3');\n  submit.classList.add('btn-danger')\n  submit.setAttribute('type', 'submit');\n  submit.setAttribute('name', 'submit');\n  submit.innerText = 'Submit';\n  form.appendChild(submit);\n  \n\n  formDiv.appendChild(form);\n  return formDiv;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadForm);\n\n//# sourceURL=webpack://todo-list-js/./src/load_form.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _addTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addTask */ \"./src/addTask.js\");\n\n\n\n\n\n\n(0,_addTask__WEBPACK_IMPORTED_MODULE_2__.default)();\n// console.log('Hello Todos');\n\n// const mainContent = document.getElementById('content');\n\n\n// const setSection = (section) => {\n//   mainContent.innerHTML = '';\n//   mainContent.append(section);\n// }\n\n// document.addEventListener('click', (e) => {\n//   if (e.target && e.target.id === 'btnAddTask') {\n//     const section = loadForm();\n//     setSection(section);\n//   }\n// })\n\n//# sourceURL=webpack://todo-list-js/./src/index.js?");
 
 /***/ })
 
