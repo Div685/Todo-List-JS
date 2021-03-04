@@ -1,6 +1,6 @@
 const removeTask = () => {
   
-  function removeTask(e) {
+  const removeTasks = (e) => {
     if(e.target.parentElement.classList.contains('delete-item')) {
       if(confirm('Are you sure')){
         e.target.parentElement.parentElement.remove();
@@ -25,6 +25,8 @@ const removeTask = () => {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
+
+  return removeTasks(event);
 }
 
 export default removeTask;

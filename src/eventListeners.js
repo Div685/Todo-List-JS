@@ -1,4 +1,9 @@
-import getTasks from './addTask'
+import getTasks from './getTask';
+import addNewTask from './newTasks';
+import removeTask from './removeTask';
+import clearTasks from './clearTask';
+import filterTasks from './filterTasks';
+
 const addEventListener = () => {
   const form = document.querySelector('#task-form');
   const taskList = document.querySelector('.collection');
@@ -18,11 +23,11 @@ const addEventListener = () => {
 
     clearBtn.addEventListener('click', clearTasks);
 
-    filter.addEventListener('keyup', filterTasks)
+    filter.addEventListener('keyup', filterTasks);
 
   }
 
-  return loadEventListeners;
+  return loadEventListeners();
 }
 
-export default addEventListener
+export default addEventListener;

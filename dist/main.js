@@ -92,7 +92,18 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _eventListeners__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./eventListeners */ \"./src/eventListeners.js\");\n/* harmony import */ var _removeTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./removeTask */ \"./src/removeTask.js\");\n\n\n\nconst addTask = () => {\n  \n  (0,_eventListeners__WEBPACK_IMPORTED_MODULE_1__.default)();\n  (0,_removeTask__WEBPACK_IMPORTED_MODULE_2__.default)();\n\n\n  function getTasks() {\n    let tasks; \n    if(localStorage.getItem('tasks') === null) {\n      tasks = [];\n    } else {\n      tasks = JSON.parse(localStorage.getItem('tasks'));\n    }\n\n    tasks.forEach(function(task) {\n      const li = document.createElement('li');\n      li.className = 'collection-item'\n      li.appendChild(document.createTextNode(task));\n\n      const link = document.createElement('a');\n      link.className = 'delete-item secondary-content'\n      link.innerHTML = '<i class=\"fa fa-remove\"></i>'\n\n      li.appendChild(link);\n      taskList.appendChild(li);\n  \n    });\n  }\n\n\n  function addNewTask(e) {\n    if(taskInput.value === '') {\n      alert('Task cannot be empty')\n    }\n\n    const li = document.createElement('li');\n    li.className = 'collection-item'\n    li.appendChild(document.createTextNode(taskInput.value));\n\n    const link = document.createElement('a');\n    link.className = 'delete-item secondary-content'\n    link.innerHTML = '<i class=\"fa fa-remove\"></i>'\n\n    li.appendChild(link);\n    taskList.appendChild(li);\n\n    //Store in local storage!\n    storeTaskInLocalStorage(taskInput.value);\n\n    taskInput.value = ''\n\n\n    e.preventDefault();\n  }\n\n//Store task\n  function storeTaskInLocalStorage(task) {\n    let tasks; \n    if(localStorage.getItem('tasks') === null) {\n      tasks = [];\n    } else {\n      tasks = JSON.parse(localStorage.getItem('tasks'));\n    }\n    tasks.push(task);\n    localStorage.setItem('tasks', JSON.stringify(tasks))\n  }\n\n\n  \n\n  function clearTasks() {\n\n\n    while(taskList.firstChild) {\n      taskList.removeChild(taskList.firstChild)\n    }\n\n    clearTasksFromLocalStorage();\n  }\n\n  function clearTasksFromLocalStorage() {\n    localStorage.clear();\n  }\n\n  function filterTasks(e) {\n    const text = e.target.value.toLowerCase();\n\n    document.querySelectorAll('.collection-item').forEach\n    (function(task) {\n      const item = task.firstChild.textContent;\n      if(item.toLowerCase().indexOf(text) != -1){\n        task.style.display = 'block'\n      } else {\n        task.style.display = 'none'\n      }\n    });\n  }\n\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addTask);\n\n//# sourceURL=webpack://todo-list-js/./src/addTask.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _eventListeners__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./eventListeners */ \"./src/eventListeners.js\");\n\n\n\nconst addTask = () => {\n  \n  (0,_eventListeners__WEBPACK_IMPORTED_MODULE_1__.default)();\n  \n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addTask);\n\n//# sourceURL=webpack://todo-list-js/./src/addTask.js?");
+
+/***/ }),
+
+/***/ "./src/clearTask.js":
+/*!**************************!*\
+  !*** ./src/clearTask.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst clearTasks = () => {\n  const taskList = document.querySelector('.collection');\n\n  const clearTask = () => {\n    while(taskList.firstChild) {\n      taskList.removeChild(taskList.firstChild)\n      }\n      \n      clearTasksFromLocalStorage();\n  }\n    \n  const clearTasksFromLocalStorage = () => {\n    localStorage.clear();\n  }\n\n  return clearTask();\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (clearTasks);\n\n\n//# sourceURL=webpack://todo-list-js/./src/clearTask.js?");
 
 /***/ }),
 
@@ -103,7 +114,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _addTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addTask */ \"./src/addTask.js\");\n\nconst addEventListener = () => {\n  const form = document.querySelector('#task-form');\n  const taskList = document.querySelector('.collection');\n  const clearBtn = document.querySelector('.clear-tasks');\n  const filter = document.querySelector('#filter');\n  const taskInput = document.querySelector('#task');\n\n  loadEventListeners();\n\n  function loadEventListeners() {\n\n    document.addEventListener('DOMContentLoaded', _addTask__WEBPACK_IMPORTED_MODULE_0__.default);\n\n    form.addEventListener('submit', addNewTask);\n\n    taskList.addEventListener('click', removeTask);\n\n    clearBtn.addEventListener('click', clearTasks);\n\n    filter.addEventListener('keyup', filterTasks)\n\n  }\n\n  return loadEventListeners;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addEventListener);\n\n//# sourceURL=webpack://todo-list-js/./src/eventListeners.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getTask */ \"./src/getTask.js\");\n/* harmony import */ var _newTasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./newTasks */ \"./src/newTasks.js\");\n/* harmony import */ var _removeTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./removeTask */ \"./src/removeTask.js\");\n/* harmony import */ var _clearTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./clearTask */ \"./src/clearTask.js\");\n/* harmony import */ var _filterTasks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filterTasks */ \"./src/filterTasks.js\");\n\n\n\n\n\n\nconst addEventListener = () => {\n  const form = document.querySelector('#task-form');\n  const taskList = document.querySelector('.collection');\n  const clearBtn = document.querySelector('.clear-tasks');\n  const filter = document.querySelector('#filter');\n  const taskInput = document.querySelector('#task');\n\n  loadEventListeners();\n\n  function loadEventListeners() {\n\n    document.addEventListener('DOMContentLoaded', _getTask__WEBPACK_IMPORTED_MODULE_0__.default);\n\n    form.addEventListener('submit', _newTasks__WEBPACK_IMPORTED_MODULE_1__.default);\n\n    taskList.addEventListener('click', _removeTask__WEBPACK_IMPORTED_MODULE_2__.default);\n\n    clearBtn.addEventListener('click', _clearTask__WEBPACK_IMPORTED_MODULE_3__.default);\n\n    filter.addEventListener('keyup', _filterTasks__WEBPACK_IMPORTED_MODULE_4__.default);\n\n  }\n\n  return loadEventListeners();\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addEventListener);\n\n//# sourceURL=webpack://todo-list-js/./src/eventListeners.js?");
+
+/***/ }),
+
+/***/ "./src/filterTasks.js":
+/*!****************************!*\
+  !*** ./src/filterTasks.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst filterTasks = () => {\n\n  const searchTasks = (e) => {\n    const text = e.target.value.toLowerCase();\n\n    document.querySelectorAll('.collection-item').forEach\n    (function(task) {\n      const item = task.firstChild.textContent;\n      if(item.toLowerCase().indexOf(text) != -1){\n        task.style.display = 'block'\n      } else {\n        task.style.display = 'none'\n      }\n    });\n  }\n\n  return searchTasks(event);\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (filterTasks);\n\n\n//# sourceURL=webpack://todo-list-js/./src/filterTasks.js?");
+
+/***/ }),
+
+/***/ "./src/getTask.js":
+/*!************************!*\
+  !*** ./src/getTask.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getTasks = () => {\n  let tasks; \n  const taskList = document.querySelector('.collection');\n  if(localStorage.getItem('tasks') === null) {\n    tasks = [];\n  } else {\n    tasks = JSON.parse(localStorage.getItem('tasks'));\n  }\n\n  tasks.forEach(function(task) {\n    const li = document.createElement('li');\n    li.className = 'collection-item'\n    li.appendChild(document.createTextNode(task));\n\n    const link = document.createElement('a');\n    link.className = 'delete-item secondary-content'\n    link.innerHTML = '<i class=\"fa fa-remove\"></i>'\n\n    li.appendChild(link);\n    taskList.appendChild(li);\n\n  });\n\n  return tasks;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getTasks);\n\n//# sourceURL=webpack://todo-list-js/./src/getTask.js?");
 
 /***/ }),
 
@@ -118,6 +151,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var boot
 
 /***/ }),
 
+/***/ "./src/newTasks.js":
+/*!*************************!*\
+  !*** ./src/newTasks.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst addNewTask = () => {\n  const taskInput = document.querySelector('#task');\n  \n  const newTask = (e) => {\n    const taskList = document.querySelector('.collection');\n    if(taskInput.value === '') {\n      alert('Task cannot be empty')\n    }else {\n      const li = document.createElement('li');\n      li.className = 'collection-item'\n      li.appendChild(document.createTextNode(taskInput.value));\n    \n      const link = document.createElement('a');\n      link.className = 'delete-item secondary-content'\n      link.innerHTML = '<i class=\"fa fa-remove\"></i>'\n      li.appendChild(link);\n      taskList.appendChild(li);\n    }\n\n    //Store in local storage!\n    storeTaskInLocalStorage(taskInput.value);\n  \n    taskInput.value = ''\n   \n    e.preventDefault();\n\n    return taskList;\n  }\n\n  //Store task\n  const storeTaskInLocalStorage = (task) => {\n  let tasks; \n  if(localStorage.getItem('tasks') === null) {\n    tasks = [];\n  } else {\n    tasks = JSON.parse(localStorage.getItem('tasks'));\n  }\n  tasks.push(task);\n  localStorage.setItem('tasks', JSON.stringify(tasks))\n}\n\n  return newTask(event);\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addNewTask);\n\n\n//# sourceURL=webpack://todo-list-js/./src/newTasks.js?");
+
+/***/ }),
+
 /***/ "./src/removeTask.js":
 /*!***************************!*\
   !*** ./src/removeTask.js ***!
@@ -125,7 +169,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var boot
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst removeTask = () => {\n  \n  function removeTask(e) {\n    if(e.target.parentElement.classList.contains('delete-item')) {\n      if(confirm('Are you sure')){\n        e.target.parentElement.parentElement.remove();\n        removeTaskFromLocalStorage(e.target.parentElement.parentElement);\n      }\n    }\n  }\n\n  //remove from local storage\n  function removeTaskFromLocalStorage(taskItem) {\n    let tasks; \n    if(localStorage.getItem('tasks') === null) {\n      tasks = [];\n    } else {\n      tasks = JSON.parse(localStorage.getItem('tasks'));\n    }\n\n    tasks.forEach(function(task, index) {\n      if(taskItem.textContent === task) {\n        tasks.splice(index, 1)\n      }\n    });\n    localStorage.setItem('tasks', JSON.stringify(tasks));\n  }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (removeTask);\n\n//# sourceURL=webpack://todo-list-js/./src/removeTask.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst removeTask = () => {\n  \n  const removeTasks = (e) => {\n    if(e.target.parentElement.classList.contains('delete-item')) {\n      if(confirm('Are you sure')){\n        e.target.parentElement.parentElement.remove();\n        removeTaskFromLocalStorage(e.target.parentElement.parentElement);\n      }\n    }\n  }\n\n  //remove from local storage\n  function removeTaskFromLocalStorage(taskItem) {\n    let tasks; \n    if(localStorage.getItem('tasks') === null) {\n      tasks = [];\n    } else {\n      tasks = JSON.parse(localStorage.getItem('tasks'));\n    }\n\n    tasks.forEach(function(task, index) {\n      if(taskItem.textContent === task) {\n        tasks.splice(index, 1)\n      }\n    });\n    localStorage.setItem('tasks', JSON.stringify(tasks));\n  }\n\n  return removeTasks(event);\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (removeTask);\n\n//# sourceURL=webpack://todo-list-js/./src/removeTask.js?");
 
 /***/ })
 
