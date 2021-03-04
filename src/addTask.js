@@ -1,28 +1,11 @@
 import { forEach } from "lodash";
-
+import addEventListener from './eventListeners'
+import removeTask from './removeTask'
 const addTask = () => {
+  
+  addEventListener();
+  removeTask();
 
-  const form = document.querySelector('#task-form');
-  const taskList = document.querySelector('.collection');
-  const clearBtn = document.querySelector('.clear-tasks');
-  const filter = document.querySelector('#filter');
-  const taskInput = document.querySelector('#task');
-
-  loadEventListeners();
-
-  function loadEventListeners() {
-
-    document.addEventListener('DOMContentLoaded', getTasks);
-
-    form.addEventListener('submit', addNewTask);
-
-    taskList.addEventListener('click', removeTask);
-
-    clearBtn.addEventListener('click', clearTasks);
-
-    filter.addEventListener('keyup', filterTasks)
-
-  }
 
   function getTasks() {
     let tasks; 
@@ -86,35 +69,20 @@ const addTask = () => {
   }
 
 
-  function removeTask(e) {
-    if(e.target.parentElement.classList.contains('delete-item')) {
-      if(confirm('Are you sure')){
-        e.target.parentElement.parentElement.remove();
-        removeTaskFromLocalStorage(e.target.parentElement.parentElement);
-      }
-    }
-  }
+  
 
-  //remove from local storage
-  function removeTaskFromLocalStorage(taskItem) {
-    let tasks; 
-    if(localStorage.getItem('tasks') === null) {
-      tasks = [];
-    } else {
-      tasks = JSON.parse(localStorage.getItem('tasks'));
+  function clearTasks() {
+
+
+    while(taskList.firstChild) {
+      taskList.removeChild(taskList.firstChild)
     }
 
-    tasks.forEach(function(task, index) {
-      if(taskItem.textContent === task) {
-        tasks.splice(index, 1)
-      }
-    });
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    clearTasksFromLocalStorage();
   }
 
-  function clearTasks(e) {
-
-    taskList.innerHTML = ''
+  function clearTasksFromLocalStorage() {
+    localStorage.clear();
   }
 
   function filterTasks(e) {
