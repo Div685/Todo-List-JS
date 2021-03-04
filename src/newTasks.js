@@ -1,5 +1,6 @@
 const addNewTask = () => {
   const taskInput = document.querySelector('#task');
+  const taskDesc = document.querySelector('#description')
   
   const newTask = (e) => {
     const taskList = document.querySelector('.collection');
@@ -18,8 +19,10 @@ const addNewTask = () => {
 
       //Store in local storage!
       storeTaskInLocalStorage(taskInput.value);
+      storeTaskInLocalStorage(taskDesc.value);
     
       taskInput.value = ''
+      taskDesc.value =''
      
       e.preventDefault();
     }
