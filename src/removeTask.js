@@ -1,29 +1,39 @@
 const removeTask = () => {
   
+let selectedListId = localStorage.getItem("task.selectedListId");
+
+let lists = JSON.parse(localStorage.getItem("task.lists")) || [];
+
   const removeTasks = (e) => {
     if(e.target.parentElement.classList.contains('delete-item')) {
       if(confirm('Are you sure')){
         e.target.parentElement.parentElement.remove();
-        removeTaskFromLocalStorage(e.target.parentElement.parentElement);
+        removeTaskFromLocalStorage(e);
       }
     }
   }
 
   //remove from local storage
-  function removeTaskFromLocalStorage(taskItem) {
-    let tasks; 
-    if(localStorage.getItem('tasks') === null) {
-      tasks = [];
-    } else {
-      tasks = JSON.parse(localStorage.getItem('tasks'));
-    }
+  function removeTaskFromLocalStorage({ target: { dataset: { id } } }) {
+    console.log(id, lists);
+    const selectedList = lists.find((list) => list.id === selectedListId);
+    const selectedTasks = selectedList.tasks;
 
-    tasks.forEach(function(task, index) {
-      if(taskItem.textContent === task) {
-        tasks.splice(index, 1)
+    console.log(selectedTasks);
+
+    selectedTasks.forEach( (task, index) => {
+      console.log(task.id);
+
+      if(id === task.id){
+        selectedTasks.splice(index,1);
       }
     });
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+
+
+  localStorage.setItem("task.lists", JSON.stringify(lists));
+  localStorage.setItem("task.selectedListId", selectedListId);
+  location.reload();
+    
   }
 
   return removeTasks(event);

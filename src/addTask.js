@@ -1,9 +1,8 @@
 import { forEach } from "lodash";
-import addEventListener from './eventListeners';
+import { render } from './domElement';
 
 const addTask = () => {
   
-  addEventListener();
-  
+  render();
 }
 export default addTask;
