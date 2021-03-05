@@ -3,7 +3,8 @@ import addNewTask from './newTasks';
 import removeTask from './removeTask';
 import clearTasks from './clearTask';
 import filterTasks from './filterTasks';
-import newProject from './newProject'
+import newProject from './newProject';
+
 
 const addEventListener = () => {
   const form = document.querySelector('#task-form');
@@ -12,6 +13,7 @@ const addEventListener = () => {
   const filter = document.querySelector('#filter');
   const taskInput = document.querySelector('#task');
   const form2 = document.querySelector('#project-form')
+
   loadEventListeners();
 
   function loadEventListeners() {

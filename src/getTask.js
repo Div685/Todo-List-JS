@@ -1,10 +1,20 @@
 const getTasks = () => {
   let tasks; 
+  let projects;
+
   const taskList = document.querySelector('.collection');
+  const projectList = document.querySelector('.card-action');
+
   if(localStorage.getItem('tasks') === null) {
     tasks = [];
   } else {
     tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+
+  if(localStorage.getItem('projects') === null) {
+    projects = [];
+  } else {
+    projects = JSON.parse(localStorage.getItem('projects'));
   }
 
   tasks.forEach(function(task) {
@@ -21,7 +31,18 @@ const getTasks = () => {
 
   });
 
-  return tasks;
+  projects.forEach(function(project) {
+    const li = document.createElement('button');
+    li.className = 'collection-item waves-light btn text-white padding';
+    li.appendChild(document.createTextNode(project));
+    projectList.appendChild(li);
+   
+  });
+
+  return {
+    tasks,
+    projects
+  };
 }
 
 export default getTasks;

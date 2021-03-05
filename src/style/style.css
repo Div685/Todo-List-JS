@@ -4,7 +4,7 @@
 }
 
 .new-task {
-
+display: ;
 }
 
 .project-input {
@@ -13,4 +13,10 @@
 
 .card-action {
   margin-bottom: 300px;
+}
+
+.padding {
+  margin-bottom: 10px;
+  width: 50%;
+  display: block;
 }
