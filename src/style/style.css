@@ -17,8 +17,6 @@
   display: block;
 }
 
-
-
 .active {
   background: #ccc;
   border-radius: 16px;
@@ -52,19 +50,20 @@ li:hover {
 
 .todo-list {
   display: grid;
-  grid-template-columns: repeat(3 , 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
 
-label, i {
+label,
+i {
   padding: 10px;
 }
 
 .todo-content {
   background: #ccc;
-    margin: 0 0 10px 0;
-    border-radius: 10px;
-    padding: 10px 0 10px 0;
+  margin: 0 0 10px 0;
+  border-radius: 10px;
+  padding: 10px 0 10px 0;
 }
 
 h2 {
