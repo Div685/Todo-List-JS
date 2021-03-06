@@ -1,6 +1,6 @@
 import { formContainer, overlay } from './storeData';
 
-function editTaskForm() {
+const editTaskForm = () => {
   const h2 = document.querySelector('.container h2');
   const submitInput = document.querySelector('input[type="submit"]');
   let modalOpen = false;

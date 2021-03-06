@@ -7,13 +7,13 @@ import colorTasks from './color';
 import editTaskForm from './editTasks';
 import removeTask from './removeTask';
 
-function clearElement(element) {
+const clearElement = (element) => {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
 }
 
-function renderLists() {
+const renderLists = () => {
   lists.forEach((list) => {
     const listElement = document.createElement('li');
     listElement.innerText = list.name;
@@ -25,7 +25,7 @@ function renderLists() {
   });
 }
 
-function editTask(task, label) {
+const editTask = (task, label) => {
   editTaskForm();
   newTaskInput.value = task.name;
   newTaskDate.value = task.date;
@@ -45,7 +45,7 @@ function editTask(task, label) {
   });
 }
 
-function renderTasks(selectedList) {
+const renderTasks = (selectedList) => {
   if (selectedList.tasks.length === 0) {
     listDisplayContainer.setAttribute('class', 'bg-light col-9');
   } else {
@@ -96,7 +96,7 @@ function renderTasks(selectedList) {
   });
 }
 
-function render() {
+const render = () => {
   clearElement(listsContainer);
   renderLists();
   const selectedList = lists.find((list) => list.id === selectedListId);

@@ -23,13 +23,13 @@ const closeButton = document.querySelector('.close');
 const addButton = document.querySelector('.add-btn');
 let modalOpen = false;
 
-function renderAndSave() {
+const renderAndSave = () => {
   render();
   localStorage.setItem('task.lists', JSON.stringify(lists));
   localStorage.setItem('task.selectedListId', selectedListId);
 }
 
-function createList() {
+const createList = () => {
   return { id: uuid(), name: newListInput.value, tasks: [] };
 }
 
@@ -44,7 +44,7 @@ newListForm.addEventListener('submit', (e) => {
   renderAndSave();
 });
 
-function createTask() {
+const createTask = () => {
   return {
     id: uuid(),
     name: newTaskInput.value,
@@ -73,7 +73,7 @@ newTaskForm.addEventListener('submit', (e) => {
 });
 
 // when user wants to add a new task
-function addTasksForm() {
+const addTasksForm = () => {
   const h2 = document.querySelector('.container h2');
   const submitInput = document.querySelector('input[type="submit"]');
 
@@ -94,7 +94,7 @@ function addTasksForm() {
 
 
 // close modal
-function closeModal() {
+const closeModal = () => {
   formContainer.setAttribute('class', 'transform-z');
   overlay.setAttribute('class', 'opacity-z');
   modalOpen = false;

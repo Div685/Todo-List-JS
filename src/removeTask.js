@@ -4,7 +4,7 @@ const removeTask = () => {
   const lists = JSON.parse(localStorage.getItem('task.lists')) || [];
 
   // remove from local storage
-  function removeTaskFromLocalStorage({ target: { dataset: { id } } }) {
+  const removeTaskFromLocalStorage = ({ target: { dataset: { id } } }) => {
     const selectedList = lists.find((list) => list.id === selectedListId);
     const selectedTasks = selectedList.tasks;
 
