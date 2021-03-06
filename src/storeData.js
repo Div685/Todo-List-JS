@@ -16,7 +16,7 @@ const newTaskPriority = document.querySelector('#priority');
 const newTaskDescription = document.querySelector('#description');
 
 const lists = JSON.parse(localStorage.getItem('task.lists')) || [];
-const selectedListId = localStorage.getItem('task.selectedListId');
+let selectedListId = localStorage.getItem('task.selectedListId');
 const overlay = document.querySelector('#overlay');
 const formContainer = document.querySelector('.container');
 const closeButton = document.querySelector('.close');
