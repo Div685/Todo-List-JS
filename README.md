@@ -32,9 +32,6 @@ To get a local copy up and running follow these simple steps.
 - [ ] Clone this repository
  > `git clone https://github.com/Div685/Todo-List-JS.git`
 - [ ] To install Webpack and dependencies run the command
- > `npm install`
- - [ ] Open your favorite browser to open the index.html file located in the dist folder.
-
  
 ## Authors
 
