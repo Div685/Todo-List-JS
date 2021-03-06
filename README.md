@@ -53,7 +53,7 @@ To get a local copy up and running follow these simple steps.
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Div685/JS-Library/issues).
+Feel free to check the [issues page](https://github.com/Div685/Todo-List-JS/issues).
 
 
 ## Show your support
