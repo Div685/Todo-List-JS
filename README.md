@@ -3,7 +3,7 @@
 > Todo List App is a web Application to manage your list of tasks. This project follows concept of OOP, ES6, and Functional Programming.
 
 
-### You can access a Live Demo [HERE](https://div685.github.io/Todo-List-JS/)
+### You can access a Live Demo [HERE](https://admiring-lichterman-9495e0.netlify.app/)
 
 ![Screenshot](./screencapture.png)
 
