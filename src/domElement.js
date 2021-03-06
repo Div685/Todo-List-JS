@@ -47,7 +47,7 @@ function editTask(task, label) {
 
 function renderTasks(selectedList) {
   if (selectedList.tasks.length === 0) {
-    listDisplayContainer.style.background = '#aaa';
+    listDisplayContainer.setAttribute('class', 'bg-light');
   } else {
     listDisplayContainer.style.background = '';
   }
@@ -57,6 +57,7 @@ function renderTasks(selectedList) {
 
     const label = taskElement.querySelector('label');
     label.htmlFor = task.id;
+    label.setAttribute('class', 'w-100');
 
     const lineBreak = document.createElement('br');
     const taskNameTitle = document.createElement('p');
@@ -65,7 +66,14 @@ function renderTasks(selectedList) {
 
     label.appendChild(taskNameTitle);
 
-    label.append(task.date, lineBreak, task.description);
+    label.append(task.date, lineBreak);
+
+    const taskDescription = document.createElement('p');
+    taskDescription.setAttribute('class', 'm-0 p-0 w-100');
+    taskDescription.innerHTML = `${task.description}`;
+
+    label.appendChild(taskDescription);
+
     const editPButton = document.createElement('a');
     editPButton.classList.add('delete-item');
 

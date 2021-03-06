@@ -75,3 +75,15 @@ h2 {
   width: 100%;
   font-weight: 700;
 }
+
+.high-priority {
+  background-color: #eb3e6f;
+}
+
+.low-priority {
+  background-color: #79f898;
+}
+
+.medium-priority {
+  background-color: #ebe844;
+}

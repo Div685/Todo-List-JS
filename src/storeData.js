@@ -117,9 +117,9 @@ addButton.addEventListener('click', () => {
   addTasksForm();
 
   if (modalOpen) {
-    addButton.style.background = '#2185d5';
+    addButton.setAttribute('class', 'primary');
   } else {
-    addButton.style.background = 'primary';
+    addButton.setAttribute('class', 'success');
   }
 });
 

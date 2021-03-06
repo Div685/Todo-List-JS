@@ -4,11 +4,11 @@ const colorTasks = (selectedList) => {
   for (let i = 0; i < todos.length; i += 1) {
     for (let i = 0; i < selectedList.tasks.length; i += 1) {
       if (selectedList.tasks[i].priority === 'High') {
-        taskDivcolor[i].style.background = '#ed1250';
+        taskDivcolor[i].setAttribute('class', 'high-priority');
       } else if (selectedList.tasks[i].priority === 'Medium') {
-        taskDivcolor[i].style.background = '#d3d00f';
+        taskDivcolor[i].setAttribute('class', 'medium-priority');
       } else {
-        taskDivcolor[i].style.background = '#0fc53d';
+        taskDivcolor[i].setAttribute('class', 'low-priority');
       }
     }
   }
