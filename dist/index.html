@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Yusei+Magic&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+  <section id="main" class="row ">
+    <div id="sidebar" class="main__page-left col-3 bg-light">
+      <h2 class="p-4">Todos</h2>
+      <div class="task-list p-4">
+        <h3> My Projects</h3>
+        <ul class="project-ul-list"></ul>
+        <form id="project-list-form" >
+          <input
+            type="text"
+            class="new-list form-control"
+            id = "project-title-input"
+            placeholder="Add a Project"
+            aria-label="Add a Project"
+          />
+          <input type="submit" value="Add Project" class=" btn btn-primary text-white mt-3">
+        </form>
+      </div>
+    </div>
+
+    <div id="todos" data-list-display-container class="display-todo-container col-9">
+      <div class="todo-lister">
+        <div class="todo-header d-flex justify-content-between">
+          <h2 class="todo-h2 bg-light" data-list-title></h2>
+        </div>
+        <div class="todo-list" id="data-tasks" data-tasks></div>
+        <div class="below-todo">
+          <div class="btns">
+            <button class="add-btn btn btn-primary align-items-center d-flex" >
+              <i class="fas fa-plus mr-2"></i> Add Task 
+            </button>
+          </div>
+        </div>
+      </div>
+
+         <!-- Form -->
+
+      <div id="modal" class="">
+        <div class="container w-50 p-4 card">
+          <div class="d-flex justify-content-between">
+            <h2>New Task</h2>
+            <div class="close pointer-curser" role="button">x</div>
+          </div>
+          <form data-new-task-form id="new-task-form" class="form-group">
+            <label for="name">Task name:</label><br />
+            <input
+              type="text"
+              id="name"
+              data-new-task-input
+              placeholder="Task title"
+              ariel-label="Add new task item"
+              autocomplete="off"
+              required
+              class="task-title form-control"
+            /><br />
+            <label for="due-date">Due date:</label>
+            <input type="date" class="form-control" id="due-date" name="due-date" required/><br />
+            <label for="priority">Priority:</label><br />
+            <select name="priority" id="priority" class="form-control">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option></select
+            ><br />
+            <label for="description">Description:</label><br />
+            <textarea
+              name="description"
+              id="description"
+              cols="30"
+              rows="6"
+              class="form-control"
+              required
+            ></textarea
+            ><br />
+            <input type="submit" class="form-control" />
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+
+
+  <div id="overlay"></div>
+
+  <template id="task-template">
+    <div class="todo">
+      <div class="todo-content">
+        <div class="task">
+          <label><span class="checkbox"></span></label>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
