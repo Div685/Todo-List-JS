@@ -47,9 +47,9 @@ function editTask(task, label) {
 
 function renderTasks(selectedList) {
   if (selectedList.tasks.length === 0) {
-    listDisplayContainer.setAttribute('class', 'bg-light');
+    listDisplayContainer.setAttribute('class', 'bg-light col-9');
   } else {
-    listDisplayContainer.style.background = '';
+    listDisplayContainer.setAttribute('class', 'bg-light col-9');
   }
 
   selectedList.tasks.forEach((task) => {
@@ -102,7 +102,7 @@ function render() {
   const selectedList = lists.find((list) => list.id === selectedListId);
 
   if (selectedListId === null) {
-    listDisplayContainer.style.display = 'none';
+    listDisplayContainer.setAttribute('class', 'd-none w-100');
     const dTask = {
       id: '123-555-555-555-99',
       name: 'Default',
@@ -113,7 +113,6 @@ function render() {
     localStorage.setItem('task.selectedListId', selectedListId);
     window.location.reload();
   } else {
-    listDisplayContainer.style.display = '';
     listTitleElement.innerHTML = `${selectedList.name}`;
     clearElement(tasksContainer);
     renderTasks(selectedList);

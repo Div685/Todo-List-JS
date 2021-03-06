@@ -6,16 +6,16 @@ function editTaskForm() {
   let modalOpen = false;
 
   if (modalOpen) {
-    formContainer.style.pointerEvents = 'none';
-    formContainer.style.transform = 'scale(0)';
-    overlay.style.opacity = 0;
+    formContainer.setAttribute('class', 'pointer-none');
+    formContainer.setAttribute('class', 'transform-z container w-50 p-4 card');
+    overlay.setAttribute('class', 'opacity-z');
     modalOpen = false;
   } else {
     h2.textContent = 'Update Task';
     submitInput.value = 'Update';
-    formContainer.style.pointerEvents = 'auto';
-    formContainer.style.transform = 'scale(1)';
-    overlay.style.opacity = 1;
+    formContainer.setAttribute('class', 'pointer-auto');
+    formContainer.setAttribute('class', 'transform-one container w-50 p-4 card');
+    overlay.setAttribute('class', 'opacity-one');
     modalOpen = true;
   }
 }

@@ -17,7 +17,7 @@
   display: block;
 }
 
-.active {
+.active-list {
   background: #ccc;
   border-radius: 16px;
 }
@@ -86,4 +86,32 @@ h2 {
 
 .medium-priority {
   background-color: #ebe844;
+}
+
+.opacity-z {
+  opacity: 0;
+}
+
+.opacity-one {
+  opacity: 1;
+}
+
+.transform-one {
+  transform: scale(1);
+}
+
+.transform-z {
+  transform: scale(0);
+}
+
+.transform-rz {
+  transform: rotate(0);
+}
+
+.pointer-none {
+  pointer-events: none;
+}
+
+.pointer-auto {
+  pointer-events: auto;
 }

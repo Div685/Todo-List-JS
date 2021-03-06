@@ -72,23 +72,22 @@ newTaskForm.addEventListener('submit', (e) => {
   renderAndSave();
 });
 
-
 // when user wants to add a new task
 function addTasksForm() {
   const h2 = document.querySelector('.container h2');
   const submitInput = document.querySelector('input[type="submit"]');
 
   if (modalOpen) {
-    formContainer.style.pointerEvents = 'none';
-    formContainer.style.transform = 'scale(0)';
-    overlay.style.opacity = 0;
+    formContainer.setAttribute('class', 'pointer-none');
+    formContainer.setAttribute('class', 'transform-z container w-50 p-4 card');;
+    overlay.setAttribute('class', 'opacity-z');
     modalOpen = false;
   } else {
     h2.textContent = 'New Task';
     submitInput.value = 'Submit';
-    formContainer.style.pointerEvents = 'auto';
-    formContainer.style.transform = 'scale(1)';
-    overlay.style.opacity = 1;
+    formContainer.setAttribute('class', 'pointer-auto');
+    formContainer.setAttribute('class', 'transform-one container w-50 p-4 card');
+    overlay.setAttribute('class', 'opacity-one');
     modalOpen = true;
   }
 }
@@ -96,8 +95,8 @@ function addTasksForm() {
 
 // close modal
 function closeModal() {
-  formContainer.style.transform = 'scale(0)';
-  overlay.style.opacity = 0;
+  formContainer.setAttribute('class', 'transform-z');
+  overlay.setAttribute('class', 'opacity-z');
   modalOpen = false;
 }
 
@@ -117,24 +116,25 @@ addButton.addEventListener('click', () => {
   addTasksForm();
 
   if (modalOpen) {
-    addButton.setAttribute('class', 'primary');
+    addButton.setAttribute('class', 'btn btn-primary');
   } else {
-    addButton.setAttribute('class', 'success');
+    addButton.setAttribute('class', 'btn btn-primary');
   }
 });
 
 // close form when user clicks on X
 closeButton.addEventListener('click', () => {
   closeModal();
-  addButton.style.transform = 'rotate(0)';
+  addButton.setAttribute('class', 'transform-rz btn btn-primary');
 });
 
 // close form after it's submitted
 formContainer.addEventListener('submit', (e) => {
   e.preventDefault();
   addTasksForm();
-  addButton.style.transform = 'rotate(0)';
+  addButton.setAttribute('class', 'transform-rz btn btn-primary');
   modalOpen = false;
+  window.location.reload();
 });
 
 
