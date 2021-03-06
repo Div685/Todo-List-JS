@@ -25,7 +25,7 @@
 }
 
 .main__page-left {
-  height: 100vh;
+  height: 120vh;
   width: 20%;
   background: #fff;
   color: black;
@@ -52,7 +52,7 @@ li:hover {
 
 .todo-list {
   display: grid;
-  grid-template-columns: repeat(2 , 1fr);
+  grid-template-columns: repeat(3 , 1fr);
   grid-gap: 10px;
 }
 
