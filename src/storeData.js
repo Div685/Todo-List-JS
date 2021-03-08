@@ -23,6 +23,40 @@ const closeButton = document.querySelector('.close');
 const addButton = document.querySelector('.add-btn');
 let modalOpen = false;
 
+
+const deleteTask = () => {
+
+  const removeProjectFromLocalStorage = ({ target: { dataset: { id } } }) => {
+    const selectedLists = lists.find((list) => list.id === selectedListId);
+    console.log( id);
+
+
+
+      // selectedTaskss.forEach((task, index) => {
+      //   if (id === task.id) {
+      //     selectedTaskss.splice(index, 1);
+      //   }
+      // });
+  
+      // localStorage.setItem('task.lists', JSON.stringify(lists));
+      // localStorage.setItem('task.selectedListId', selectedListId);
+      // window.location.reload();
+  }
+
+  
+  const deleteTasks = (e) => {
+    if (e.target.parentElement.classList.contains('delete-projectt')) {
+      console.log(e.target.parentElement.parentElement);
+      // e.target.parentElement.parentElement.remove();
+      removeProjectFromLocalStorage(e);
+    }
+  }
+
+  return deleteTasks(event);
+
+}
+
+
 const renderAndSave = () => {
   render();
   localStorage.setItem('task.lists', JSON.stringify(lists));
@@ -154,4 +188,5 @@ export {
   taskTemplate,
   listCountElement,
   overlay,
+  deleteTask,
 };

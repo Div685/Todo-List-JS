@@ -1,7 +1,7 @@
 import {
   listsContainer, lists, selectedListId, listDisplayContainer,
   listTitleElement, tasksContainer, taskTemplate, newTaskInput, newTaskDate, newTaskDescription,
-  newTaskPriority, newTaskForm,
+  newTaskPriority, newTaskForm, deleteTask
 } from './storeData';
 import colorTasks from './color';
 import editTaskForm from './editTasks';
@@ -16,7 +16,15 @@ const clearElement = (element) => {
 const renderLists = () => {
   lists.forEach((list) => {
     const listElement = document.createElement('li');
+    listElement.setAttribute('class', 'delete-projectt d-flex justify-content-between align-items-center')
     listElement.innerText = list.name;
+
+    const deleteII = document.createElement('i');
+    deleteII.setAttribute('class', 'fas fa-trash ml-5');
+    deleteII.addEventListener('click', () => deleteTask());
+    deleteII.setAttribute('data-id', list.id);
+    listElement.appendChild(deleteII);
+
     listElement.dataset.listId = list.id;
     if (list.id === selectedListId) {
       listElement.classList.add('active-list');
