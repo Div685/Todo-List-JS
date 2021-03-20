@@ -32,6 +32,12 @@ To get a local copy up and running follow these simple steps.
 - [ ] Clone this repository
  > `git clone https://github.com/Div685/Todo-List-JS.git`
 - [ ] To install Webpack and dependencies run the command
+
+**How to Use Tests for todo-list**
+- [ ] clone this repo `https://github.com/Div685/Todo-List-JS.git`
+- [ ] navigate to the project directory.
+- [ ] run `npm install` and then `npm run test`.
+
  
 ## Authors
 

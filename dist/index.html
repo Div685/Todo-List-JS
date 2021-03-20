@@ -21,10 +21,13 @@
 <body>
   <div id="container">
     <nav>
-      <p>todoList</p>
+      <p class="text-white font-weight-bold d-flex  align-items-center p-0 m-0">TodoList</p>
     </nav>
+    <div class="alert text-capitalize feedback">
+      write value for item
+     </div>
     <main>
-      <div id="projects">
+      <div id="projects" class="mr-3">
         <form id="form-project">
           <input
             type="text"
@@ -32,13 +35,11 @@
             id="project-name"
             placeholder="Your new project"
           />
-          <input type="submit" value="Create new" />
+          <input type="submit" value="Add Project" class="btn btn-primary"/>
         </form>
         <div class="card"></div>
       </div>
-      <div class="alert text-capitalize feedback">
-        write value for item
-       </div>
+
       <div id="tasks" class="card">
         <form id="form-task">
           <input type="text" name="task-title" id="task-name"

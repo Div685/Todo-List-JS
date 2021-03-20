@@ -1,4 +1,4 @@
-import Task from './getTask';
+import Task from '../getTask';
 
 describe('Task', () => {
   let task;
