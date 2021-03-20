@@ -28,5 +28,12 @@ describe('Project', () => {
     expect(project.tasks.length).not.toBe(0);
   });
 
+  test('delete tasks from project', () => {
+    const task = 'first task';
+    const task2 = 'second task';
+    project.addTask();
+    expect(project.tasks.length).toBe(1);
+  })
+
  
 });
