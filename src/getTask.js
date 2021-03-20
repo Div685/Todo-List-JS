@@ -1,5 +1,5 @@
-import { createHtmlElement } from './domElement';
-import { currentProject } from './mainProject';
+import { createHtmlElement } from './domElements';
+import { currentProject } from './myProject';
 
 const $project = document.querySelector('#task-container');
 

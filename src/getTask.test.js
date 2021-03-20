@@ -29,6 +29,11 @@ describe('Task', () => {
     expect(task.title).toBe('new title');
   });
 
+  test('setter of status', () => {
+    task.status = 'new status';
+    expect(task.status).toBe('new status');
+  });
+  
   test('setter of description', () => {
     task.description = 'new description';
     expect(task.description).toBe('new description');
@@ -44,8 +49,5 @@ describe('Task', () => {
     expect(task.priority).toBe('new priority');
   });
 
-  test('setter of status', () => {
-    task.status = 'new status';
-    expect(task.status).toBe('new status');
-  });
+  
 });

@@ -1,4 +1,4 @@
-import { createHtmlElement, setId } from './domElement';
+import { createHtmlElement, setId } from './domElements';
 
 const gproject = document.querySelector('#projects .card');
 

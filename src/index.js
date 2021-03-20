@@ -1,5 +1,5 @@
 import './style.css';
-import { Project, projectsArray, currentProject } from './mainProject';
+import { Project, projectsArray, currentProject } from './myProject';
 import Task from './getTask';
 
 const $projectForm = document.getElementById('form-project');
