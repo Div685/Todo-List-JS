@@ -31,9 +31,12 @@ describe('Project', () => {
   test('delete tasks from project', () => {
     const task = 'first task';
     const task2 = 'second task';
-    project.addTask();
+    project.addTask(task);
+    project.addTask(task2);
+    project.deleteTask(0);
     expect(project.tasks.length).toBe(1);
-  })
+    expect(project.tasks[0]).toBe('second task');
+  });
 
  
 });
