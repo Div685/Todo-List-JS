@@ -20,13 +20,11 @@ body {
 }
 
 nav {
-  height: 80px;
   display: flex;
   justify-content: space-between;
-  padding-left: 40px;
   align-items: center;
-  background: var(--purple);
-  padding-right: 3.7rem;
+  background: var(--primary);
+  padding: 1rem 3.7rem;
 }
 
 main {
