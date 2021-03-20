@@ -1,4 +1,4 @@
-import { Project } from './myProject';
+import { Project } from '../myProject';
 
 describe('Project', () => {
   let project;
