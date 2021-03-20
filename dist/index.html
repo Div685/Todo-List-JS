@@ -1,117 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo List</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Yusei+Magic&display=swap"
-    rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoList</title>
+     <!-- bootstrap css -->
+   <link
+   rel="stylesheet"
+   href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+   integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+   crossorigin="anonymous"/>
+<script src="https://kit.fontawesome.com/688a35b1eb.js" crossorigin="anonymous"></script>
+<!-- google fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<!-- main css -->
+<link href="styles.css">
+    
 </head>
-
 <body>
-
-
-  <section id="main" class="row ">
-    <div id="sidebar" class="main__page-left col-3 bg-light">
-      <h2 class="p-4">Todos</h2>
-      <div class="task-list p-4">
-        <h3> My Projects</h3>
-        <ul class="project-ul-list"></ul>
-        <form id="project-list-form" >
+  <div id="container">
+    <nav>
+      <p>todoList</p>
+    </nav>
+    <main>
+      <div id="projects">
+        <form id="form-project">
           <input
             type="text"
-            class="new-list form-control"
-            id = "project-title-input"
-            placeholder="Add a Project"
-            aria-label="Add a Project"
+            name="project-name"
+            id="project-name"
+            placeholder="Your new project"
           />
-          <input type="submit" value="Add Project" class=" btn btn-primary text-white mt-3">
+          <input type="submit" value="Create new" />
+        </form>
+        <div class="card"></div>
+      </div>
+      <div class="alert text-capitalize feedback">
+        write value for item
+       </div>
+      <div id="tasks" class="card">
+        <form id="form-task">
+          <input type="text" name="task-title" id="task-name"
+            placeholder="task-title"
+          />
+          <input type="text" name="task-description" id="task-description"
+            placeholder="task-description"
+          />
+          <input type="date" name="task-date" id="task-date"/>
+          <select name="task-priority" id="task-priority">
+            <option value="urgent">urgent</option>
+            <option value="normal">normal</option>
+          </select>
+          <input type="submit" value="+" />
+        </form>
+        <div id="task-container"></div>
+      </div>
+    </main>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <form id="form-task-edit">
+          <input type="text" name="task-name" id="task-name-edit"
+            placeholder="task-title"
+          />
+          <input type="text" name="task-name" id="task-description-edit"
+            placeholder="task-description"
+          />
+          <input type="date" name="task-date" id="task-date-edit" />
+          <select name="task-priority" id="task-priority-edit">
+            <option value="urgent">urgent</option>
+            <option value="normal">normal</option>
+          </select>
+          <input type="submit" value="Save" />
         </form>
       </div>
-    </div>
-
-    <div id="todos" data-list-display-container class="display-todo-container col-9">
-      <div class="todo-lister">
-        <div class="todo-header d-flex justify-content-between">
-          <h2 class="todo-h2 bg-light" data-list-title></h2>
-        </div>
-        <div class="todo-list" id="data-tasks" data-tasks></div>
-        <div class="below-todo">
-          <div class="btns">
-            <button class="add-btn btn btn-primary align-items-center d-flex" >
-              <i class="fas fa-plus mr-2"></i> Add Task 
-            </button>
-          </div>
-        </div>
-      </div>
-
-         <!-- Form -->
-
-      <div id="modal" class="">
-        <div class="container w-50 p-4 card">
-          <div class="d-flex justify-content-between">
-            <h2>New Task</h2>
-            <div class="close pointer-curser" role="button">x</div>
-          </div>
-          <form data-new-task-form id="new-task-form" class="form-group">
-            <label for="name">Task name:</label><br />
-            <input
-              type="text"
-              id="name"
-              data-new-task-input
-              placeholder="Task title"
-              ariel-label="Add new task item"
-              autocomplete="off"
-              required
-              class="task-title form-control"
-            /><br />
-            <label for="due-date">Due date:</label>
-            <input type="date" class="form-control" id="due-date" name="due-date" required/><br />
-            <label for="priority">Priority:</label><br />
-            <select name="priority" id="priority" class="form-control">
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option></select
-            ><br />
-            <label for="description">Description:</label><br />
-            <textarea
-              name="description"
-              id="description"
-              cols="30"
-              rows="6"
-              class="form-control"
-              required
-            ></textarea
-            ><br />
-            <input type="submit" class="form-control" />
-          </form>
-        </div>
-      </div>
-
-      
-    </div>
-  </section>
+  </div>
+   
+    
 
 
-  <div id="overlay"></div>
 
-  <template id="task-template">
-    <div class="todo">
-      <div class="todo-content">
-        <div class="task">
-          <label><span class="checkbox"></span></label>
-        </div>
-      </div>
-    </div>
-  </template>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous">
+  </script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous">
+  </script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous">
+  </script>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="main.js"></script>
+    <!-- main.js -->
+    <script src="main.js"></script>    
 </body>
-
 </html>
